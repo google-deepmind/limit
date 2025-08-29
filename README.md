@@ -1,6 +1,6 @@
 # On the Theoretical Limitations of Embedding-based Retrieval
 
-This repository contains the official resources for the paper "[On the Theoretical Limitations of Embedding-based Retrieval](https://arxiv.org/abs/TODO)".
+This repository contains the official resources for the paper "[On the Theoretical Limitations of Embedding-based Retrieval](https://arxiv.org/abs/2508.21038)".
 This work introduces the **LIMIT** dataset,
 designed to stress-test embedding models based on theoretical principles.
 We show that for any given embedding dimension `d`,
