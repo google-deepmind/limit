@@ -64,7 +64,7 @@ uv pip install -r https://raw.githubusercontent.com/google-deepmind/limit/refs/h
 
 ## Loading with Huggingface Datasets
 You can also load the data using the `datasets` library from Huggingface:
-```
+```python
 from datasets import load_dataset
 ds = load_dataset("orionweller/LIMIT-small", "corpus") # also available: queries, test (contains qrels).
 ```
@@ -73,7 +73,7 @@ ds = load_dataset("orionweller/LIMIT-small", "corpus") # also available: queries
 
 Evaluation was done using the [MTEB framework](https://github.com/embeddings-benchmark/mteb) on the [v2.0.0 branch](https://github.com/embeddings-benchmark/mteb/tree/v2.0.0) (soon to be `main`). An example is:
 
-```
+```python
 model_name = "sentence-transformers/all-MiniLM-L6-v2"
 
 # load the model using MTEB
@@ -92,7 +92,7 @@ Please see their Github for more details.
 
 If you use this work, please cite the paper as:
 
-```
+```bibtex
 @article{weller2025theoretical,
   title={On the Theoretical Limitations of Embedding-Based Retrieval},
   author={Weller, Orion and Boratko, Michael and Naim, Iftekhar and Lee, Jinhyuk},
