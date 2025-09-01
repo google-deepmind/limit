@@ -62,21 +62,42 @@ source .venv/bin/activate
 uv pip install -r https://raw.githubusercontent.com/google-deepmind/limit/refs/heads/main/code/requirements.txt
 ```
 
+## Loading with Huggingface Datasets
+You can also load the data using the `datasets` library from Huggingface:
+```
+from datasets import load_dataset
+ds = load_dataset("orionweller/LIMIT-small", "corpus") # also available: queries, test (contains qrels).
+```
+
 ## Evaluation
 
-Evaluation was done using the [MTEB framework](https://github.com/embeddings-benchmark/mteb). Please see their Github for details.
+Evaluation was done using the [MTEB framework](https://github.com/embeddings-benchmark/mteb) on the [v2.0.0 branch](https://github.com/embeddings-benchmark/mteb/tree/v2.0.0) (soon to be `main`). An example is:
+
+```
+model_name = "sentence-transformers/all-MiniLM-L6-v2"
+
+# load the model using MTEB
+model = mteb.get_model(model_name) # will default to SentenceTransformers(model_name) if not implemented in MTEB
+# or using SentenceTransformers
+model = SentenceTransformers(model_name)
+
+# select the desired tasks and evaluate
+tasks = mteb.get_tasks(tasks=["LIMITSmallRetrieval"]) # or use LIMITRetrieval for the full dataset
+results = mteb.evaluate(model, tasks=tasks)
+```
+
+Please see their Github for more details.
 
 ## Citation
 
 If you use this work, please cite the paper as:
 
 ```
-@misc{weller2025theoretical,
-      title={On the Theoretical Limitations of Embedding-based Retrieval},
-      author={Orion Weller and Michael Boratko and Iftekhar Naim and Jinhyuk Lee},
-      year={2025},
-      archivePrefix={arXiv},
-      primaryClass={cs.IR}
+@article{weller2025theoretical,
+  title={On the Theoretical Limitations of Embedding-Based Retrieval},
+  author={Weller, Orion and Boratko, Michael and Naim, Iftekhar and Lee, Jinhyuk},
+  journal={arXiv preprint arXiv:2508.21038},
+  year={2025}
 }
 ```
 
