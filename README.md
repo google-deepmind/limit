@@ -63,7 +63,7 @@ uv pip install -r https://raw.githubusercontent.com/google-deepmind/limit/refs/h
 ```
 
 ## Loading with Huggingface Datasets
-You can also load the data using the `datasets` library from Huggingface:
+You can also load the data using the `datasets` library from Huggingface ([LIMIT](https://huggingface.co/datasets/orionweller/LIMIT), [LIMIT-small](https://huggingface.co/datasets/orionweller/LIMIT-small)),:
 ```python
 from datasets import load_dataset
 ds = load_dataset("orionweller/LIMIT-small", "corpus") # also available: queries, test (contains qrels).
