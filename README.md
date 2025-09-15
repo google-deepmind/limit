@@ -71,15 +71,17 @@ ds = load_dataset("orionweller/LIMIT-small", "corpus") # also available: queries
 
 ## Evaluation
 
-Evaluation was done using the [MTEB framework](https://github.com/embeddings-benchmark/mteb) on the [v2.0.0 branch](https://github.com/embeddings-benchmark/mteb/tree/v2.0.0) (soon to be `main`). An example is:
+Evaluation was done using the [MTEB framework](https://github.com/embeddings-benchmark/mteb). You can reproduce this **only on the [v2.0.0 branch](https://github.com/embeddings-benchmark/mteb/tree/w_limit)** (soon to be `main`). Note that the v2.0.0 branch is changing rapidly, so **please install the version pinned in the requirements** until it becomes main. An example is:
 
 ```python
-model_name = "sentence-transformers/all-MiniLM-L6-v2"
+import mteb
+from sentence_transformers import SentenceTransformer
 
 # load the model using MTEB
+model_name = "sentence-transformers/all-MiniLM-L6-v2"
 model = mteb.get_model(model_name) # will default to SentenceTransformers(model_name) if not implemented in MTEB
 # or using SentenceTransformers
-model = SentenceTransformers(model_name)
+model = SentenceTransformer(model_name)
 
 # select the desired tasks and evaluate
 tasks = mteb.get_tasks(tasks=["LIMITSmallRetrieval"]) # or use LIMITRetrieval for the full dataset
