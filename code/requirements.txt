@@ -1,3 +1,4 @@
+git+https://github.com/embeddings-benchmark/mteb.git@w_limit
 absl-py==2.3.1
 numpy==2.2.6
 optax==0.2.5
